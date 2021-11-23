@@ -185,62 +185,6 @@
 			"response": []
 		},
 		{
-			"name": "get_test_user",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "salary",
-							"value": "{{u_salary_1.5_year}}",
-							"type": "text"
-						},
-						{
-							"key": "age",
-							"value": "31",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "Anton",
-							"type": "text"
-						},
-						{
-							"key": "auth_token",
-							"value": "{{token}}",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}get_test_user",
-					"host": [
-						"{{url}}get_test_user"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						},
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						},
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "new_data",
 			"event": [
 				{
@@ -309,11 +253,7 @@
 							"    pm.expect(arr[2])>(arr[0] && arr[1]);\r",
 							"});\r",
 							"\r",
-							"\r",
-							"\r",
-							"\r",
-							"\r",
-							"//console.log(arr[2]);"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -595,13 +535,13 @@
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"\r",
-							"//Можете взять любой объект из присланного списка, используйте js random.\r",
-							"var item = jsonData[Math.floor(Math.random()*jsonData.length)];\r",
-							"\r",
-							"//В объекте возьмите Cur_ID и передать через окружение в следующий запрос.\r",
-							"pm.environment.set('curr_code', item.Cur_ID);\r",
-							"\r",
-							"\r",
+							"function randItem(){\r",
+							"    var item = jsonData[Math.floor(Math.random()*jsonData.length)];  //Можете взять любой объект из присланного списка, используйте js random.\r",
+							"    if(item.Cur_ID > 371){\r",
+							"        pm.environment.set('curr_code', item.Cur_ID);  //В объекте возьмите Cur_ID и передать через окружение в следующий запрос.\r",
+							"    }\r",
+							"};\r",
+							"randItem();\r",
 							"\r",
 							""
 						],
