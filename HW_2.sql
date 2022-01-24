@@ -116,7 +116,7 @@ create table employee_salary(
 -- Наполнить таблицу employee_salary 40 строками: в 10 строк из 40 вставить несуществующие employee_id
 insert into employee_salary(employee_id, salary_id)
 values (16, 13), 
-	 (36, 10), 
+	   (36, 10), 
        (39, 8), 
        (34, 10), 
        (15, 4), 
@@ -210,7 +210,7 @@ create table roles_employee(
 -- Наполнить таблицу roles_employee 40 строками
 insert into roles_employee(employee_id, role_id)
 values (16, 1), 
-	 (36, 11), 
+	   (36, 11), 
        (39, 2), 
        (34, 12), 
        (15, 3), 
