@@ -1,0 +1,17 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: my_jenkins
+    user: root
+    restart: unless-stopped
+    ports:
+      - "8080:8080"     # веб-интерфейс Jenkins
+      - "50000:50000"   # для подключаемых агентов
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # даёт Jenkins доступ к Docker хоста
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"  # пропуск мастера настройки (опционально)
+
+volumes:
+  jenkins_home:
